@@ -1,0 +1,11 @@
+{
+  "name": "aws-github-lambda-pipeline-trigger",
+  "version": "0.0.1",
+  "main": "handler.js",
+  "author": "Mike Dedys",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "lambda-github-webhook-validator": "^1.0.0"
+  }
+}

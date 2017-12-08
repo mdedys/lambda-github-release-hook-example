@@ -1,0 +1,24 @@
+
+# Name that will be prefixed when creating resources
+service: AWSPipelineTriggerExample
+
+custom: ${file(./env.yml)}
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  stage: prod
+  region: us-east-1
+  role: arn:aws:iam::187674268844:role/Lambda-Pipeline
+  environment:
+    SECRET: ${self:custom.SECRET}
+    PIPELINE_NAME: LambdaTestPipeline
+  memorySize: 128
+
+functions:
+  awsPipelineTrigger:
+    handler: handler.awsPipelineTrigger
+    events:
+      - http:
+          path: trigger
+          method: post
